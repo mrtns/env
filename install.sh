@@ -74,4 +74,5 @@ TODO
 
 # set up app aliases
 
+sudo ln -s /usr/bin/gnome-terminal /usr/local/bin/t
 sudo ln -s /usr/bin/google-chrome /usr/local/bin/c
