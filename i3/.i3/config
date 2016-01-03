@@ -163,3 +163,8 @@ bindsym control+space exec /usr/local/bin/quickswitch.py -d "dmenu -i -l 20 -fn 
 
 # https://faq.i3wm.org/question/6/how-can-i-set-a-desktop-background-image-in-i3/
 exec --no-startup-id xsetroot -solid "#000000"
+
+
+bindsym XF86AudioRaiseVolume exec volume up 1
+bindsym XF86AudioLowerVolume exec volume down 1
+bindsym XF86AudioMute exec volume mute toggle
