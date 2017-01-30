@@ -1,0 +1,8 @@
+function mkcd 
+{
+  command mkdir $1 && cd $1
+}
+
+alias ll='ls -alph'
+
+export PATH=$PATH:/usr/local/go/bin
