@@ -38,8 +38,8 @@ bindsym $mod+Shift+q kill
 # To use TTF fonts, demnu needs to have the xft patch: https://faq.i3wm.org/question/4219/increase-font-size-of-dmenu-j4-dmenu/
 # sudo update-alternatives --config dmenu
 #   /usr/bin/dmenu/xft
-bindsym $mod+d exec dmenu_run -fn 'Ubuntu Mono:bold:pixelsize=10'
-bindsym $mod+space exec dmenu_run -fn 'Ubuntu Mono:bold:pixelsize=10'
+bindsym $mod+d exec dmenu_run -fn 'Ubuntu Mono:bold:pixelsize=18'
+bindsym $mod+space exec dmenu_run -fn 'Ubuntu Mono:bold:pixelsize=18'
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -159,12 +159,12 @@ bar {
         status_command i3status -c ~/.i3/.i3status.conf
 }
 
-bindsym control+space exec /usr/local/bin/quickswitch.py -d "dmenu -i -l 20 -fn 'Ubuntu Mono:bold:pixelsize=10'"
+bindsym control+space exec /usr/local/bin/quickswitch.py -d "dmenu -i -l 20 -fn 'Ubuntu Mono:bold:pixelsize=18'"
 
 # https://faq.i3wm.org/question/6/how-can-i-set-a-desktop-background-image-in-i3/
 exec --no-startup-id xsetroot -solid "#000000"
 
 
-bindsym XF86AudioRaiseVolume exec volume up 1
-bindsym XF86AudioLowerVolume exec volume down 1
+bindsym XF86AudioRaiseVolume exec volume up
+bindsym XF86AudioLowerVolume exec volume down
 bindsym XF86AudioMute exec volume mute toggle
