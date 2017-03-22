@@ -1,3 +1,19 @@
+# install vim
+
+sudo apt-get install vim
+
+# install git
+
+sudo apt-get install git
+
+# install google-chrome-stable
+
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+sudo apt-get update
+sudo apt-get install google-chrome-stable
+
+
 
 # install i3
 # http://www.brentwalther.net/blog/how-to-replace-unity-with-i3-window-manager-on-ubuntu-1204
@@ -9,6 +25,11 @@ sudo apt-get update
 sudo apt-get --allow-unauthenticated install sur5r-keyring
 sudo apt-get update
 sudo apt-get install i3
+
+
+# install python-pip
+
+sudo apt-get install python-pip
 
 # install quickswitch-for-i3
 # https://github.com/proxypoke/quickswitch-for-i3
