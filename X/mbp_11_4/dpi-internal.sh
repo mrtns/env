@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp ~/.Xresources.pixel ~/.Xresources && cp ~/.xinitrc.pixel ~/.xinitrc && kill -9 -1
+cp ~/.Xresources.internal ~/.Xresources && cp ~/.xinitrc.internal ~/.xinitrc && kill -9 -1
