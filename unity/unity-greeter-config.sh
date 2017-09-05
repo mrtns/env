@@ -1,4 +1,5 @@
 sudo -i
+xhost +SI:localuser:lightdm
 su lightdm -s /bin/bash
 gsettings set com.canonical.unity-greeter play-ready-sound "false"
 gsettings set com.canonical.unity-greeter draw-user-backgrounds 'false'
