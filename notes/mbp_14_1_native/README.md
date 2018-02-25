@@ -20,3 +20,27 @@
 
   * References
     * [Toward a Linux touchpad as smooth as Macbook Pro](https://williambharding.com/blog/technology/toward-a-linux-touchpad-as-smooth-as-macbook-pro/) 
+
+## Display Brightness
+
+* ```bash
+  git clone https://github.com/Hummer12007/brightnessctl
+  ``` 
+
+* ```bash
+  cd brightnessctl
+  ``` 
+
+* ```bash
+  INSTALL_UDEV_RULES=1 make
+  ``` 
+
+* ```bash
+  sudo INSTALL_UDEV_RULES=1 make install
+  ``` 
+
+* Update i3wm config:
+  ```
+  bindsym XF86MonBrightnessUp exec --no-startup-id "brightnessctl s +5%"
+  bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl s 5%-"
+  ```
