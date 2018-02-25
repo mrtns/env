@@ -1,3 +1,3 @@
 #!/bin/bash
 
-xrandr --output "DP1" --off --output "eDP1" --primary --auto
+xrandr --output "DP2" --off --output "eDP1" --primary --auto
