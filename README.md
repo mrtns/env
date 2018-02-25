@@ -30,3 +30,10 @@ Running Ubuntu natively on the 'Macbook Pro 11,4', dual booting with OSX.
 Running Ubuntu in a VMWare VM on OSX on the Macbook Pro 11,4.
 
 [mbp_11_4_osx_vm/README.md](notes/mbp_11_4_osx_vm/README.md)
+
+
+## Ubuntu on MacBook Pro 14,1 Native 
+
+Running Ubuntu natively on the 'Macbook Pro 14,1', dual booting with OSX.
+
+[mbp_14_1_native/README.md](notes/mbp_14_1_native/README.md)
