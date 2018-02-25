@@ -34,3 +34,7 @@ i3-msg exit
   pkill -9 xflux ; xflux -z 90210 -k 4500 ; ps aux | grep xflux
   pkill -9 xflux ; xflux -l 52.5 -g 13.4 -k 4500 ; ps aux | grep xflux
   ```
+
+# powerline-shell
+
+* https://github.com/b-ryan/powerline-shell
