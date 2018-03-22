@@ -38,3 +38,16 @@ i3-msg exit
 # powerline-shell
 
 * https://github.com/b-ryan/powerline-shell
+
+
+# USB Tether
+
+* Get id of USB network interface  
+  ```bash
+  ip link
+  ``` 
+
+* Enable DHCP on network interface  
+  ```bash
+  sudo dhclient enp0s20f0u2
+  ```
