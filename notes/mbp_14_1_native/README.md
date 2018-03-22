@@ -44,3 +44,15 @@
   bindsym XF86MonBrightnessUp exec --no-startup-id "brightnessctl s +5%"
   bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl s 5%-"
   ```
+
+## Keyboard Function Keys
+
+* Default to media keys:
+  ```bash
+  echo 1 | sudo tee /sys/module/applespi/parameters/fnmode
+  ```
+
+* Default to function keys:
+  ```bash
+  echo 2 | sudo tee /sys/module/applespi/parameters/fnmode
+  ```

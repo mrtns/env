@@ -51,3 +51,109 @@ i3-msg exit
   ```bash
   sudo dhclient enp0s20f0u2
   ```
+
+# Wifi via command line
+
+List status
+
+```
+nmcli general
+```
+```
+STATE                   CONNECTIVITY  WIFI-HW  WIFI     WWAN-HW  WWAN    
+connected (local only)  unknown       enabled  enabled  enabled  enabled 
+```
+
+```
+nmcli networking
+```
+```
+enabled
+```
+
+```
+nmcli radio
+```
+```
+WIFI-HW  WIFI     WWAN-HW  WWAN    
+enabled  enabled  enabled  enabled 
+```
+
+```
+nmcli connection
+```
+```
+NAME     UUID                                  TYPE             DEVICE  
+docker0  351344d5-4953-4c0d-95b7-aeb0a6d45b5c  bridge           docker0 
+M        19fc81da-b937-4947-8286-01c2ffdec4c3  802-11-wireless  --      
+```
+
+```
+nmcli device
+```
+```
+DEVICE   TYPE      STATE         CONNECTION 
+docker0  bridge    connected     docker0    
+wlp2s0   wifi      disconnected  --         
+lo       loopback  unmanaged     --       
+```
+
+* Turn off wifi
+
+```
+nmcli radio all off
+```
+
+* Connect to a wifi network
+```
+nmcli device wifi connect M
+nmcli connection up id M
+nmcli device wifi connect M wep-key-type phrase password x
+```
+
+# Networking
+
+* Restart
+  ```bash
+  sudo /etc/init.d/dns-clean
+  sudo service network-manager restart
+  sudo service systemd-resolved restart
+  ```
+
+# Shutter (screenshot app)
+
+* Install  
+  ```
+  sudo apt-get install shutter
+  ```
+
+* Create shortcut  
+  ```
+  sudo ln -s /usr/bin/shutter /usr/local/bin/grab_shutter
+  ```
+
+# colordiff
+
+TODO
+
+
+# Audio
+
+* Start pulseaudio
+  ```bash
+  pulseaudio --start
+  ```
+
+* Switch audio to DragonFly
+  ```bash
+  pacmd list-sinks
+  pacmd set-default-sink "alsa_output.usb-AudioQuest_AudioQuest_DragonFly_Black_v1.5_AQDFBL0100101010-01.analog-stereo"
+  ```
+
+* Control volume via command line
+  ```bash
+  pactl set-sink-mute @DEFAULT_SINK@ toggle
+  pactl set-sink-volume @DEFAULT_SINK@ +5%   
+  pactl set-sink-volume @DEFAULT_SINK@ -5%
+  ```
+
