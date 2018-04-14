@@ -111,6 +111,13 @@ nmcli connection up id M
 nmcli device wifi connect M wep-key-type phrase password x
 ```
 
+* Connect to USB tether
+```
+ip link
+
+sudo dhclient enp0s20f0u2
+```
+
 # Networking
 
 * Restart
