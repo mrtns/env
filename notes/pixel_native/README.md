@@ -140,7 +140,14 @@ Steps:
 
 ## Laptop keyboard
 
-* TODO: `cat ~/.xsessionrc`
+```bash
+ll X/pixel_native/keyboards
+```
+
+```bash
+cat ~/.xsessionrc
+xkbcomp ${HOME}/env/keyboard/server-0.xkb.pixel_ubuntu_samuskernel_mod ${DISPLAY} 
+```
 
 ## External keyboard
 

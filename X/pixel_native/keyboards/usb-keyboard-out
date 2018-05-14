@@ -1,0 +1,7 @@
+#!/bin/bash
+sleep 1
+DISPLAY=":0"
+HOME=/home/martin/
+XAUTHORITY=$HOME/.Xauthority
+export DISPLAY XAUTHORITY HOME
+gsettings set org.gnome.settings-daemon.plugins.keyboard active true

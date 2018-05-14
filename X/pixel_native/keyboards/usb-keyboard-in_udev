@@ -1,0 +1,2 @@
+#!/bin/bash
+/home/martin/env/keyboard/usb-keyboard-in &

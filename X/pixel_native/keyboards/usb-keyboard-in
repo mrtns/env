@@ -1,0 +1,13 @@
+#!/bin/bash
+sleep 1
+DISPLAY=":0"
+HOME=/home/martin/
+XAUTHORITY=$HOME/.Xauthority
+export DISPLAY XAUTHORITY HOME
+usbkbd_id=`xinput -list | grep "daskeyboard" | awk -F'=' '{print $2}' | cut -c 1-2 | head -1`
+usbkbd_layout_path="${HOME}/env/keyboard/server-0.xkb.pixel_ubuntu_samuskernel_mod_daskeyboard"
+if [ "${usbkbd_id}" ]; then
+    gsettings set org.gnome.settings-daemon.plugins.keyboard active false
+    sleep 2
+    xkbcomp -i "${usbkbd_id}" "${usbkbd_layout_path}" ${DISPLAY}
+fi
