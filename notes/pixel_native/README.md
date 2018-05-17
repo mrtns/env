@@ -1,9 +1,11 @@
 # pixel_native
 
+
 Running Ubuntu on the Chromebook Pixel 2 LS (Samus) natively.
 
+# Ubuntu 16.04
 
-# Install ectool
+## Install ectool
 
 ```
 git clone https://chromium.googlesource.com/chromiumos/platform/ec
@@ -12,7 +14,7 @@ sed -i 's/\(COMMON_WARN =\)/\1 -Wno-error=maybe-uninitialized/' Makefile.toolcha
 make BOARD=samus build/samus/util/ectool
 ```
 
-# Install `raphael/linux-samus` kernel
+## Install `raphael/linux-samus` kernel
 
 * Check current kernel
   ```
@@ -36,7 +38,7 @@ make BOARD=samus build/samus/util/ectool
   Linux neutrino 4.9.6-ph+ #17 SMP Fri Jan 27 11:38:18 PST 2017 x86_64 x86_64 x86_64 GNU/Linux
   ```
 
-# Fan control
+## Fan control
 
 Dependencies:
 
@@ -49,7 +51,7 @@ Steps:
   sudo ~/env/ec/build/samus/util/ectool --interface=lpc fanduty 0
   ```
 
-# External display
+## External display
 
 * The cable
   * [Google USB-C to Displayport Cable](https://store.google.com/product/usb_type_c_to_displayport_cable)
@@ -82,7 +84,7 @@ Steps:
     * http://askubuntu.com/questions/393400/is-it-possible-to-have-two-different-dpi-configurations-for-two-different-screen
 
 
-# X11 acceleration
+## X11 acceleration
 
 Dependencies:
 
@@ -101,7 +103,7 @@ Steps:
   $ ./xaccel.sh
   ```
 
-# Trackpad
+## Trackpad
 
 Dependencies:
 
@@ -136,9 +138,9 @@ Steps:
   xinput list-props 'Atmel maXTouch Touchpad'
   ```
 
-# Keyboard
+## Keyboard
 
-## Laptop keyboard
+### Laptop keyboard
 
 ```bash
 ll X/pixel_native/keyboards
@@ -149,14 +151,14 @@ cat ~/.xsessionrc
 xkbcomp ${HOME}/env/keyboard/server-0.xkb.pixel_ubuntu_samuskernel_mod ${DISPLAY} 
 ```
 
-## External keyboard
+### External keyboard
 
 References
 
 * http://askubuntu.com/a/337431
 
 
-# Display brightness controls
+## Display brightness controls
 
 Dependencies:
 
@@ -186,7 +188,7 @@ Steps:
   bindsym XF86MonBrightnessDown exec brightness --decrease
   ```
 
-# Keyboard LED
+## Keyboard LED
 
 Dependencies:
 
@@ -198,3 +200,59 @@ Scripts:
   ```
   echo 0 > "/sys/class/leds/chromeos::kbd_backlight/brightness"
   ```
+
+
+# Ubuntu 18.04
+
+## Keyboard
+
+Same as 16.04
+
+
+## Display brightness controls
+
+Same as 16.04.
+
+
+## Keyboard LED
+
+Same as 16.04. 
+
+
+## Trackpad
+
+The default libinput trackpad driver seems to work well.
+
+Get info:
+
+* ```
+  xinput
+  ```
+
+* ```
+  xinput list-props 'Atmel maXTouch Touchpad'
+  ```
+
+Test configuration parameters live:
+
+* ```
+  xinput set-prop 'Atmel maXTouch Touchpad' 'libinput Accel Speed' 0.8
+  ```
+
+Configuration:
+
+* The default config already exists:
+  ```
+  cat /usr/share/X11/xorg.conf.d/40-libinput.conf
+  ```
+
+* An override file exists with custom configs:
+  ```
+  cat X/pixel_native/50-touchpad-libinput-martin.conf
+  ```
+
+* Install the override config via:
+  ```
+  sudo cp X/pixel_native/50-touchpad-libinput-martin.conf /usr/share/X11/xorg.conf.d/
+  ```
+
