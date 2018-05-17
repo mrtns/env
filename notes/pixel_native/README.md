@@ -256,3 +256,17 @@ Configuration:
   sudo cp X/pixel_native/50-touchpad-libinput-martin.conf /usr/share/X11/xorg.conf.d/
   ```
 
+## Audio
+
+* Enable the audio
+  ```
+  ./home/martin/env/linux-samus/scripts/setup/audio/enable-audio.sh
+  ./home/martin/env/linux-samus/scripts/setup/audio/enable-speakers.sh
+  ```
+
+* Create symlinks
+  ```
+  sudo ln -s ~/env/linux-samus/scripts/setup/audio/volume-up.sh /usr/local/bin/volume-up
+  sudo ln -s ~/env/linux-samus/scripts/setup/audio/volume-down.sh /usr/local/bin/volume-down
+  sudo ln -s ~/env/linux-samus/scripts/setup/audio/mute-toggle.sh /usr/local/bin/volume-mute-toggle
+  ```
