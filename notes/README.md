@@ -164,3 +164,34 @@ TODO
   pactl set-sink-volume @DEFAULT_SINK@ -5%
   ```
 
+# Pairing a bluetooth mouse
+
+* Start bluetoothctl
+  ```bash
+  bluetoothctl
+  ```
+
+* Register agent
+  ```bash
+  default-agent
+  ```
+
+* Start scan
+  ```bash
+  scan on
+  ```
+
+* Attempt pair
+  ```bash
+  pair 00:1F:20:07:AA:B3
+  ```
+
+* Connect
+  ```bash
+  connect 00:1F:20:07:AA:B3
+  ```
+
+* Exit
+  ```bash
+  quit
+  ```
