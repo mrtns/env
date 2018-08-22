@@ -104,6 +104,12 @@ lo       loopback  unmanaged     --
 nmcli radio all off
 ```
 
+* Scan for wifi networks
+```
+nmcli device wifi rescan
+nmcli device wifi list
+```
+
 * Connect to a wifi network
 ```
 nmcli device wifi connect M
