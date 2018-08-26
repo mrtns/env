@@ -201,3 +201,21 @@ TODO
   ```bash
   quit
   ```
+
+# Configuring Touchpad
+
+* List devices  
+  ```
+  xinput
+  ```
+
+* List device configuration  
+  ```
+  xinput list-props "SynPS/2 Synaptics TouchPad"
+  ```
+
+* Set device configuration  
+  ```
+  xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 1.0
+  ```
+
