@@ -1,0 +1,138 @@
+cat /etc/fstab 
+vi /etc/crypttab
+vim /etc/crypttab
+vi /etc/crypttab
+cat /etc/crypttab 
+cat /etc/initramfs-tools/conf.d/resume
+update-initramfs -u -k all
+cat /etc/initramfs-tools/conf.d/resume
+lsinitramfs /boot/initrd* | grep cryptsetup
+exit
+ll /boot
+ll /boot/efi
+cp /boot/* /boot/efi
+mkdir -p /boot/efi/loader/entries
+vi /boot/efi/loader/loader.conf
+vi /boot/efi/loader/entries/ubuntu.conf
+bootctl install --path=/boot/efi
+efibootmgr -c -d /dev/nvme0n1p1 -p 1 -l EFI/systemd/systemd-bootx64.efi -L "Linux Boot Manager"
+efibootmgr
+ll /mnt
+ll /boot
+ll /boot/efi
+efibootmgr
+efibootmgr -D 0000
+efibootmgr
+efibootmgr -B 0000
+efibootmgr --delete-bootnum 0000
+efibootmgr --delete-bootnum=0000
+efibootmgr --delete-bootnum 0000
+efibootmgr
+efibootmgr -B0000
+efibootmgr -b 0000 -B
+bootctl
+bootctl --help
+bootctl remove --path=/boot/efi
+bootctl
+rm /boot/efi/loader/entries/ubuntu.conf 
+rm /boot/efi/loader/loader.conf 
+ll /boot/efi
+ll /boot/efi/loader
+ll /boot/efi/loader/entries
+rm -r /boot/efi/loader
+ll /boot
+ll /boot/efi
+rm /boot/efi/System.map-4.13.0-21-generic 
+rm /boot/abi-4.13.0-21-generic 
+cp /boot/efi/abi-4.13.0-21-generic /boot/
+ll /boot
+ll /boot/efi
+cd /boot/efi
+ll
+rm abi-4.13.0-21-generic 
+rm config-4.13.0-21-generic 
+rm initrd.img-4.13.0-21-generic 
+rm memtest86+.bin 
+rm memtest86+.elf 
+ll
+rm memtest86+_multiboot.bin 
+rm vmlinuz-4.13.0-21-generic
+rm vmlinuz-4.13.0-21-generic.efi.signed 
+ll
+ll EFI
+ll EFI/ubuntu/
+ll EFI/APPLE/
+apt install grub-efi
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub
+ll
+ll /boot
+ll /usr/lib/grub/
+apt-get install grub-efi
+apt-get update
+apt-get install grub-efi
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub
+ll
+ll EFI
+ll EFI/grub/grubx64.efi 
+cat EFI/grub/grubx64.efi 
+grub-mkconfig -o /boot/grub/grub.cfg
+cat /boot/grub/grub.cfg 
+ll /boot/grub/
+history
+grub-install --help
+ll /boot/efi
+ll /boot/efi/EFI
+find *
+rm -r EFI/grub/
+ll
+bootctl install --path=/boot/efi
+find *
+vi loader/loader.conf
+vi loader/entries/ubuntu.conf
+history
+efibootmgr 
+efibootmgr -b 0001 -B
+efibootmgr 
+vi loader/entries/ubuntu.conf
+ll /mnt
+ll /boot
+cp /boot/* /boot/efi
+ll
+vi loader/entries/ubuntu.conf
+efibootmgr -c -d /dev/nvme0n1p1 -p 1 -l EFI/systemd/systemd-bootx64.efi -L "Linux Boot Manager"
+efibootmgr -b 0001 -B
+grub-install --help
+ll
+history
+cp /boot/* /boot/efi
+ll /boot/efi
+vi /boot/efi/loader/entries/ubuntu.conf 
+exit
+echo -e "\n# applespi\napplespi\nspi_pxa2xx_platform\nintel_lpss_pci" >> /etc/initramfs-tools/modules
+exit
+git clone https://github.com/cb22/macbook12-spi-driver.git /usr/src/applespi-0.1
+apt install git
+git clone https://github.com/cb22/macbook12-spi-driver.git /usr/src/applespi-0.1
+dkms install -m applespi -v 0.1
+cp /boot/* /boot/efi
+exit
+echo "deb http://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
+exit
+cd /home/martin/env/brightnessctl/
+INSTALL_UDEV_RULES=1 make install
+ll /usr/bin
+claer
+clear
+exit
+history
+history > /tmp/quantum1_root_history
+cat /tmp/quantum1_root_history 
+exit
+xhost +SI:localuser:lightdm
+su lightdm -s /bin/bash
+exit
+echo facetimehd >> /etc/modules
+ll /etc/modules
+cat /etc/modules
+history
+

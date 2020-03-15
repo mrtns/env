@@ -1,0 +1,17 @@
+	1  cryptsetup luksOpen /dev/sda5 lvm
+	2  lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL
+	3  blkid | grep ^/dev/sda5
+	4  for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
+	5  ll /mnt
+	6  for i in /dev /dev/pts /proc /sys /run; do mount -B $i /mnt$i; done
+	7  mount /dev/mapper/ubuntu--vg-root /mnt
+	8  mkdir /mnt/boot
+	9  ll /mnt/boot
+   10  mount /dev/sda1 /mnt/boot/
+   11  ll /mnt
+   12  ll /mnt/boot
+   13  for i in /dev /dev/pts /proc /sys /run; do mount -B $i /mnt$i; done
+   14  chroot /mnt
+
+
+
