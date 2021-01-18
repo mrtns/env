@@ -104,6 +104,12 @@ lo       loopback  unmanaged     --
 nmcli radio all off
 ```
 
+* Scan for wifi networks
+```
+nmcli device wifi rescan
+nmcli device wifi list
+```
+
 * Connect to a wifi network
 ```
 nmcli device wifi connect M
@@ -195,3 +201,21 @@ TODO
   ```bash
   quit
   ```
+
+# Configuring Touchpad
+
+* List devices  
+  ```
+  xinput
+  ```
+
+* List device configuration  
+  ```
+  xinput list-props "SynPS/2 Synaptics TouchPad"
+  ```
+
+* Set device configuration  
+  ```
+  xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 1.0
+  ```
+
