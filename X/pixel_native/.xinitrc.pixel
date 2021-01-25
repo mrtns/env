@@ -1,1 +1,9 @@
-exec ~/.xsessionrc  && xrandr --dpi 144 && xrdb -merge ~/.Xresources && exec i3
+ #!/usr/bin/env bash
+
+xkbcomp ${HOME}/dev/env/X/pixel_native/keyboards/server-0.xkb.pixel_ubuntu_samuskernel_mod ${DISPLAY} &
+
+xrandr --dpi 144 &
+
+xrdb -merge ~/.Xresources &
+
+exec i3
