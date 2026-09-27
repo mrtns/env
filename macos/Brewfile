@@ -15,19 +15,9 @@ brew "pyenv"
 brew "pyenv-virtualenv"
 brew "xz" # needed by pyenv to build Python's lzma module
 
-# Apps
-cask "1password"
-cask "chatgpt"
-cask "claude"
-cask "docker-desktop"
-cask "google-chrome"
-cask "insta360-link-controller"
-cask "iterm2"
+# Apps (only those whose vendor lists Homebrew; see README.md for the rest)
 cask "klogg"
-cask "logitech-g-hub"
-cask "numi"
 cask "zed"
 
 # Fonts (install.sh copies the rest from fonts/)
-cask "font-envy-code-r"
 cask "font-jetbrains-mono"

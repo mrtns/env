@@ -60,6 +60,20 @@ brew bundle cleanup --file=~/env/macos/Brewfile
 
 # Manual steps
 
+## Apps
+
+These aren't in the Brewfile because their vendors don't list Homebrew as an install method. Download them from the official pages:
+
+* [1Password](https://1password.com/downloads/mac)
+* [ChatGPT](https://openai.com/chatgpt/download/)
+* [Claude](https://claude.com/download)
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+* [Google Chrome](https://www.google.com/chrome/)
+* [Insta360 Link Controller](https://www.insta360.com/download/insta360-link)
+* [iTerm2](https://iterm2.com/downloads.html)
+* [Logitech G HUB](https://www.logitechg.com/en-us/innovation/g-hub.html)
+* [Numi](https://numi.app/)
+
 ## yabai scripting addition
 
 Needed for yabai features like moving windows between spaces. Requires partially disabling System Integrity Protection, which can't be scripted.

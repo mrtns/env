@@ -39,7 +39,6 @@ brew bundle --file="$MACOS_DIR/Brewfile"
 
 step "Fonts"
 for f in "$MACOS_DIR"/../fonts/*.ttf; do
-  case "$(basename "$f")" in EnvyCodeR*) continue ;; esac # installed by the font-envy-code-r cask
   [ -e ~/Library/Fonts/"$(basename "$f")" ] || cp "$f" ~/Library/Fonts/
 done
 
@@ -133,4 +132,4 @@ if ! command -v claude >/dev/null; then
   curl -fsSL https://claude.ai/install.sh | bash
 fi
 
-step "Done. See macos/README.md for manual steps (yabai scripting addition, SpaceId)."
+step "Done. See macos/README.md for manual steps (apps, yabai scripting addition, SpaceId)."
