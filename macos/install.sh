@@ -102,10 +102,13 @@ skhd --start-service || skhd --restart-service
 # Hostname
 
 step "Hostname: $HOSTNAME_NEW"
-if [ "$(scutil --get HostName 2>/dev/null || true)" != "$HOSTNAME_NEW" ]; then
-  sudo scutil --set HostName "$HOSTNAME_NEW"
-  sudo scutil --set LocalHostName "$HOSTNAME_NEW"
-  sudo scutil --set ComputerName "$HOSTNAME_NEW"
+for name in HostName LocalHostName ComputerName; do
+  if [ "$(scutil --get "$name" 2>/dev/null || true)" != "$HOSTNAME_NEW" ]; then
+    sudo scutil --set "$name" "$HOSTNAME_NEW"
+    HOSTNAME_CHANGED=1
+  fi
+done
+if [ -n "${HOSTNAME_CHANGED:-}" ]; then
   dscacheutil -flushcache
 fi
 
