@@ -33,7 +33,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 append_once 'eval "$(/opt/homebrew/bin/brew shellenv)"' ~/.zprofile
 
 step "Brewfile"
-brew bundle --file="$MACOS_DIR/Brewfile"
+if ! brew bundle --file="$MACOS_DIR/Brewfile"; then
+  echo "WARNING: some Brewfile entries failed to install (see above); continuing."
+fi
 
 # Fonts
 
@@ -96,7 +98,6 @@ step "yabai, skhd services"
 yabai --start-service || yabai --restart-service
 skhd --install-service
 skhd --start-service || skhd --restart-service
-# brew services start borders
 
 # Hostname
 

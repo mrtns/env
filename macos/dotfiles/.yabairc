@@ -8,6 +8,4 @@ yabai -m config layout                       bsp
 yabai -m config auto_balance                 on
 yabai -m config window_shadow                off
 
-# borders &
-
 echo "yabai configuration loaded.."

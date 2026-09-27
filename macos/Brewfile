@@ -1,11 +1,9 @@
 tap "asmvik/formulae"
 tap "jackielii/tap"
-# tap "felixkratz/formulae"
 
 # Window management
 brew "asmvik/formulae/yabai"
 cask "jackielii/tap/skhd-zig"
-# brew "felixkratz/formulae/borders"
 
 # Dev tools
 brew "gh"
