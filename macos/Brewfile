@@ -1,0 +1,21 @@
+tap "asmvik/formulae"
+tap "jackielii/tap"
+
+# Window management
+brew "asmvik/formulae/yabai"
+cask "jackielii/tap/skhd-zig"
+
+# Dev tools
+brew "gh"
+brew "tig"
+brew "pnpm"
+brew "pyenv"
+brew "pyenv-virtualenv"
+brew "xz" # needed by pyenv to build Python's lzma module
+
+# Apps (only those whose vendor lists Homebrew; see README.md for the rest)
+cask "klogg"
+cask "zed"
+
+# Fonts (install.sh copies the rest from fonts/)
+cask "font-jetbrains-mono"

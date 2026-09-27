@@ -56,3 +56,12 @@ Running Ubuntu natively on the 'Alienware 17 R5'.
 Circa 2018-08 to 2021-03.
 
 [ubuntu/notes/alienware17r5_native/README.md](ubuntu/notes/alienware17r5_native/README.md)
+
+
+## macOS
+
+Native macOS on Apple Silicon with yabai and tui.
+
+Circa 2020-11 to present.
+
+[macos/README.md](macos/README.md)
