@@ -1,0 +1,9 @@
+ #!/usr/bin/env bash
+
+xkbcomp ${HOME}/dev/env/ubuntu/X/pixel_native/keyboards/server-0.xkb.pixel_ubuntu_samuskernel_mod ${DISPLAY} &
+
+xrandr --dpi 110 &
+
+xrdb -merge ~/.Xresources &
+
+exec i3

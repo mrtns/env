@@ -1,0 +1,1 @@
+xkbcomp ${HOME}/dev/env/ubuntu/X/pixel_native/keyboards/server-0.xkb.pixel_ubuntu_samuskernel_mod ${DISPLAY} 

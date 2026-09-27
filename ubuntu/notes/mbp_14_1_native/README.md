@@ -15,7 +15,7 @@
 * Configure
 
   * ```bash
-    sudo cp X/mbp_14_1/50-mtrack.conf /usr/share/X11/xorg.conf.d/
+    sudo cp ubuntu/X/mbp_14_1/50-mtrack.conf /usr/share/X11/xorg.conf.d/
     ```
 
   * References

@@ -8,32 +8,32 @@ A [dotfile](https://dotfiles.github.io/) like repo for my workstation configurat
 
 Running Ubuntu on the Chromebook Pixel 2 LS (Samus) natively.
 
-[pixel_native/README.md](notes/pixel_native/README.md)
+[pixel_native/README.md](ubuntu/notes/pixel_native/README.md)
 
 
 ## Ubuntu on Pixel via Crouton
 
 Running Ubuntu on the Chromebook Pixel 2 LS (Samus) via the Chromium OS Universal Chroot Environment.
 
-[pixel_crouton/README.md](notes/pixel_crouton/README.md)
+[pixel_crouton/README.md](ubuntu/notes/pixel_crouton/README.md)
 
 
 ## Ubuntu on MacBook Pro 11,4 Native 
 
 Running Ubuntu natively on the 'Macbook Pro 11,4', dual booting with OSX.
 
-[mbp_11_4_native/README.md](notes/mbp_11_4_native/README.md)
+[mbp_11_4_native/README.md](ubuntu/notes/mbp_11_4_native/README.md)
 
 
 ## Ubuntu on MacBook Pro 11,4 via OSX and WMWare
 
 Running Ubuntu in a VMWare VM on OSX on the Macbook Pro 11,4.
 
-[mbp_11_4_osx_vm/README.md](notes/mbp_11_4_osx_vm/README.md)
+[mbp_11_4_osx_vm/README.md](ubuntu/notes/mbp_11_4_osx_vm/README.md)
 
 
 ## Ubuntu on MacBook Pro 14,1 Native 
 
 Running Ubuntu natively on the 'Macbook Pro 14,1', dual booting with OSX.
 
-[mbp_14_1_native/README.md](notes/mbp_14_1_native/README.md)
+[mbp_14_1_native/README.md](ubuntu/notes/mbp_14_1_native/README.md)

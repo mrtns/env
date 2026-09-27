@@ -143,12 +143,12 @@ Steps:
 ### Laptop keyboard
 
 ```bash
-ll X/pixel_native/keyboards
+ll ubuntu/X/pixel_native/keyboards
 ```
 
 ```bash
 cat ~/.xsessionrc
-xkbcomp ${HOME}/env/keyboard/server-0.xkb.pixel_ubuntu_samuskernel_mod ${DISPLAY} 
+xkbcomp ${HOME}/dev/env/ubuntu/X/pixel_native/keyboards/server-0.xkb.pixel_ubuntu_samuskernel_mod ${DISPLAY} 
 ```
 
 ### External keyboard
@@ -248,12 +248,12 @@ Configuration:
 
 * An override file exists with custom configs:
   ```
-  cat X/pixel_native/50-touchpad-libinput-martin.conf
+  cat ubuntu/X/pixel_native/50-touchpad-libinput-martin.conf
   ```
 
 * Install the override config via:
   ```
-  sudo cp X/pixel_native/50-touchpad-libinput-martin.conf /usr/share/X11/xorg.conf.d/
+  sudo cp ubuntu/X/pixel_native/50-touchpad-libinput-martin.conf /usr/share/X11/xorg.conf.d/
   ```
 
 ## Audio
