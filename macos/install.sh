@@ -112,9 +112,39 @@ fi
 # Defaults
 
 step "defaults"
-defaults write com.apple.dock expose-animation-duration -float 0
+# Appearance, scrolling, keyboard
+defaults write -g AppleInterfaceStyle -string Dark
+defaults write -g com.apple.swipescrolldirection -bool false
+defaults write -g com.apple.keyboard.fnState -bool true
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
+# Trackpad (built-in and Bluetooth): fast tracking, tap to click, three-finger
+# drag, light click, four-finger swipe between spaces
+defaults write -g com.apple.trackpad.scaling -float 2.5
+defaults -currentHost write -g com.apple.mouse.tapBehavior -int 1
+for d in com.apple.AppleMultitouchTrackpad com.apple.driver.AppleBluetoothMultitouch.trackpad; do
+  defaults write "$d" Clicking -bool true
+  defaults write "$d" TrackpadThreeFingerDrag -bool true
+  defaults write "$d" TrackpadThreeFingerHorizSwipeGesture -int 0
+  defaults write "$d" TrackpadFourFingerHorizSwipeGesture -int 2
+done
+defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 0
+defaults write com.apple.AppleMultitouchTrackpad SecondClickThreshold -int 0
+
+# Dock, spaces
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock tilesize -float 16
+defaults write com.apple.dock minimize-to-application -bool true
+defaults write com.apple.dock mru-spaces -bool false
+defaults write com.apple.dock expose-animation-duration -float 0
+
+# Finder, desktop
+defaults write com.apple.finder FXPreferredViewStyle -string Nlsv
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
+defaults write com.apple.WindowManager HideDesktop -bool true
+
 killall Dock
+killall Finder
 
 # GitHub
 
