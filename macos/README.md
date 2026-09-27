@@ -40,7 +40,7 @@ yabai --restart-service
 
 # iTerm2
 
-The "Martin" profile, including its key mappings, is in [iterm2/Martin.json](iterm2/Martin.json). The install script copies it to iTerm2's Dynamic Profiles folder and makes it the default.
+The "Martin" profile, including its key mappings and the [Synthwave](https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/schemes/Synthwave.itermcolors) colour scheme, is in [iterm2/Martin.json](iterm2/Martin.json). The install script copies it to iTerm2's Dynamic Profiles folder and makes it the default.
 
 iTerm2 treats dynamic profiles as read-only, so changes made in Settings aren't saved back. To change the profile, edit the JSON, or change a normal profile in iTerm2 and export it with Settings → Profiles → Other Actions → Save Profile as JSON. Keep the `Guid` in the file so it stays the default.
 

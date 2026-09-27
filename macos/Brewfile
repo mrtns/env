@@ -28,6 +28,6 @@ cask "logitech-g-hub"
 cask "numi"
 cask "zed"
 
-# Fonts (fonts/ in this repo has the ones without a cask)
+# Fonts (install.sh copies the rest from fonts/)
 cask "font-envy-code-r"
 cask "font-jetbrains-mono"

@@ -39,6 +39,7 @@ brew bundle --file="$MACOS_DIR/Brewfile"
 
 step "Fonts"
 for f in "$MACOS_DIR"/../fonts/*.ttf; do
+  case "$(basename "$f")" in EnvyCodeR*) continue ;; esac # installed by the font-envy-code-r cask
   [ -e ~/Library/Fonts/"$(basename "$f")" ] || cp "$f" ~/Library/Fonts/
 done
 
