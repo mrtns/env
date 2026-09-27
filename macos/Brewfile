@@ -1,0 +1,19 @@
+tap "asmvik/formulae"
+tap "jackielii/tap"
+tap "felixkratz/formulae"
+
+# Window management
+brew "asmvik/formulae/yabai"
+brew "jackielii/tap/skhd-zig"
+brew "felixkratz/formulae/borders"
+
+# Dev tools
+brew "gh"
+brew "tig"
+brew "pnpm"
+brew "pyenv"
+brew "pyenv-virtualenv"
+
+# Apps
+cask "klogg"
+cask "spaceid"
