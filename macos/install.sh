@@ -61,6 +61,9 @@ export NVM_DIR="$HOME/.nvm"
 set +u; . "$NVM_DIR/nvm.sh"; set -u
 nvm install node
 
+step "npm global packages"
+npm install -g difit
+
 step "pyenv, python $PYTHON_VERSION"
 append_once 'export PYENV_ROOT="$HOME/.pyenv"' ~/.zshrc
 append_once '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' ~/.zshrc
