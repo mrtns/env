@@ -1,11 +1,11 @@
 tap "asmvik/formulae"
 tap "jackielii/tap"
-tap "felixkratz/formulae"
+# tap "felixkratz/formulae"
 
 # Window management
 brew "asmvik/formulae/yabai"
 brew "jackielii/tap/skhd-zig"
-brew "felixkratz/formulae/borders"
+# brew "felixkratz/formulae/borders"
 
 # Dev tools
 brew "gh"
@@ -13,6 +13,7 @@ brew "tig"
 brew "pnpm"
 brew "pyenv"
 brew "pyenv-virtualenv"
+brew "xz" # needed by pyenv to build Python's lzma module
 
 # Apps
 cask "klogg"

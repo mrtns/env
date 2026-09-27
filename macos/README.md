@@ -25,9 +25,17 @@ The script is safe to re-run. It installs:
 * oh-my-zsh
 * nvm and the latest node
 * pyenv and Python 3.12
-* yabai, skhd and borders, started as services
+* yabai and skhd, started as services
 
-It also sets the hostname and Dock and VS Code defaults, and logs in to GitHub with a token from the clipboard.
+It also copies the files in [dotfiles/](dotfiles) to your home folder (backing up any that differ to `.bak`), sets the hostname and Dock and VS Code defaults, and logs in to GitHub with a token from the clipboard.
+
+To apply edits to the dotfiles, re-run the script, or copy them by hand:
+
+```bash
+cp ~/env/macos/dotfiles/.skhdrc ~/env/macos/dotfiles/.yabairc ~/env/macos/dotfiles/.common_profile ~/
+skhd --restart-service
+yabai --restart-service
+```
 
 # Packages
 

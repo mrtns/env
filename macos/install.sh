@@ -60,12 +60,27 @@ append_once 'eval "$(pyenv virtualenv-init -)"' ~/.zshrc
 pyenv install --skip-existing "$PYTHON_VERSION"
 pyenv global "$(pyenv latest "$PYTHON_VERSION")"
 
+# Dotfiles
+
+step "Dotfiles"
+for f in .common_profile .skhdrc .yabairc; do
+  if [ -f ~/"$f" ] && ! cmp -s "$MACOS_DIR/dotfiles/$f" ~/"$f"; then
+    cp ~/"$f" ~/"$f.bak"
+    echo "Backed up existing ~/$f to ~/$f.bak"
+  fi
+  cp "$MACOS_DIR/dotfiles/$f" ~/"$f"
+done
+append_once '[ -f ~/.common_profile ] && . ~/.common_profile' ~/.zshrc
+
 # Window management
 
-step "yabai, skhd, borders services"
+step "yabai, skhd services"
 yabai --start-service || yabai --restart-service
+if ! ls ~/Library/LaunchAgents/*skhd*.plist >/dev/null 2>&1; then
+  skhd --install-service
+fi
 skhd --start-service || skhd --restart-service
-brew services start borders
+# brew services start borders
 
 # Hostname
 
