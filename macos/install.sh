@@ -33,6 +33,11 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 append_once 'eval "$(/opt/homebrew/bin/brew shellenv)"' ~/.zprofile
 
 step "Brewfile"
+# Homebrew refuses to load formulae from third-party taps until they're trusted.
+for t in $(sed -n 's/^tap "\(.*\)".*/\1/p' "$MACOS_DIR/Brewfile"); do
+  brew tap "$t"
+  brew trust "$t"
+done
 if ! brew bundle --file="$MACOS_DIR/Brewfile"; then
   echo "WARNING: some Brewfile entries failed to install (see above); continuing."
 fi
@@ -71,8 +76,11 @@ append_once 'export PYENV_ROOT="$HOME/.pyenv"' ~/.zshrc
 append_once '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' ~/.zshrc
 append_once 'eval "$(pyenv init - zsh)"' ~/.zshrc
 append_once 'eval "$(pyenv virtualenv-init -)"' ~/.zshrc
-pyenv install --skip-existing "$PYTHON_VERSION"
-pyenv global "$(pyenv latest "$PYTHON_VERSION")"
+if pyenv install --skip-existing "$PYTHON_VERSION"; then
+  pyenv global "$(pyenv latest "$PYTHON_VERSION")"
+else
+  echo "WARNING: Python $PYTHON_VERSION failed to build (see above); continuing. Re-run once fixed."
+fi
 
 # Dotfiles
 
