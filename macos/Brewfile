@@ -27,3 +27,7 @@ cask "klogg"
 cask "logitech-g-hub"
 cask "numi"
 cask "zed"
+
+# Fonts (fonts/ in this repo has the ones without a cask)
+cask "font-envy-code-r"
+cask "font-jetbrains-mono"

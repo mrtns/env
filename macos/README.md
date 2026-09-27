@@ -22,6 +22,7 @@ Initializing a fresh macOS install on Apple Silicon.
 The script is safe to re-run. It installs:
 
 * Rosetta, Homebrew, and everything in [Brewfile](Brewfile)
+* The fonts in [fonts/](../fonts), for any not already installed
 * oh-my-zsh, with the dpoggi theme and `~/.local/bin` on the PATH
 * nvm and the latest node
 * pyenv and Python 3.12
