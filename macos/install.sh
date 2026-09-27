@@ -78,9 +78,7 @@ append_once '[ -f ~/.common_profile ] && . ~/.common_profile' ~/.zshrc
 
 step "yabai, skhd services"
 yabai --start-service || yabai --restart-service
-if ! ls ~/Library/LaunchAgents/*skhd*.plist >/dev/null 2>&1; then
-  skhd --install-service
-fi
+skhd --install-service
 skhd --start-service || skhd --restart-service
 # brew services start borders
 

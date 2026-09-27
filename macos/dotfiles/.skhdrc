@@ -94,6 +94,18 @@ alt - 0 : yabai -m space --focus 10
 alt - 0x1B : yabai -m space --focus 11
 alt - 0x18 : yabai -m space --focus 12
 
+# Navigation - text editing
+alt - space | cmd - space
+cmd - backspace | alt - backspace
+fn - home | cmd - left
+fn - end | cmd - right
+shift + fn - home | shift + cmd - left
+shift + fn - end | shift + cmd - right
+cmd - left | alt - left
+cmd - right | alt - right
+shift + cmd - left | shift + alt - left
+shift + cmd - right | shift + alt - right
+
 # Moving windows
 shift + alt - h : yabai -m window --warp west
 shift + alt - j : yabai -m window --warp south
