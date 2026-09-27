@@ -41,6 +41,8 @@ step "oh-my-zsh"
 if [ ! -d ~/.oh-my-zsh ]; then
   RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
+sed -i '' 's/^ZSH_THEME=.*/ZSH_THEME="dpoggi"/' ~/.zshrc
+append_once 'export PATH="$HOME/.local/bin:$PATH"' ~/.zshrc
 
 # Languages
 
