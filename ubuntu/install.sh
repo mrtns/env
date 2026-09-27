@@ -60,7 +60,7 @@ sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
 
 # install powerline
 
-cd ~/dev/env
+cd ~/env
 git clone https://github.com/milkbikis/powerline-shell.git
 cd powerline-shell
 cp config.py.dist config.py
@@ -69,7 +69,7 @@ cp config.py.dist config.py
 vim ~/.zshrc
 
     function powerline_precmd() {
-      export PS1="$(~/dev/env/powerline-shell/powerline-shell.py $? --shell zsh 2> /dev/null)"
+      export PS1="$(~/env/powerline-shell/powerline-shell.py $? --shell zsh 2> /dev/null)"
     }
 
     function install_powerline_precmd() {

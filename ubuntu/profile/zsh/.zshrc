@@ -81,7 +81,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # install powerline-shell
     function powerline_precmd() {
-      export PS1="$(~/dev/env/powerline-shell/powerline-shell.py $? --shell zsh 2> /dev/null)"
+      export PS1="$(~/env/powerline-shell/powerline-shell.py $? --shell zsh 2> /dev/null)"
     }
 
     function install_powerline_precmd() {

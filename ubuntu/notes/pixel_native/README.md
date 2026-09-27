@@ -148,7 +148,7 @@ ll ubuntu/X/pixel_native/keyboards
 
 ```bash
 cat ~/.xsessionrc
-xkbcomp ${HOME}/dev/env/ubuntu/X/pixel_native/keyboards/server-0.xkb.pixel_ubuntu_samuskernel_mod ${DISPLAY} 
+xkbcomp ${HOME}/env/ubuntu/X/pixel_native/keyboards/server-0.xkb.pixel_ubuntu_samuskernel_mod ${DISPLAY} 
 ```
 
 ### External keyboard

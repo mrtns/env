@@ -1,2 +1,2 @@
 #!/bin/bash
-/home/martin/dev/env/ubuntu/X/pixel_native/keyboards/usb-keyboard-in &
+/home/martin/env/ubuntu/X/pixel_native/keyboards/usb-keyboard-in &
