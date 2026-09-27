@@ -37,6 +37,12 @@ skhd --restart-service
 yabai --restart-service
 ```
 
+# iTerm2
+
+The "Martin" profile, including its key mappings, is in [iterm2/Martin.json](iterm2/Martin.json). The install script copies it to iTerm2's Dynamic Profiles folder and makes it the default.
+
+iTerm2 treats dynamic profiles as read-only, so changes made in Settings aren't saved back. To change the profile, edit the JSON, or change a normal profile in iTerm2 and export it with Settings → Profiles → Other Actions → Save Profile as JSON. Keep the `Guid` in the file so it stays the default.
+
 # Packages
 
 Add or remove packages in [Brewfile](Brewfile), then:

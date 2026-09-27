@@ -74,6 +74,12 @@ for f in .common_profile .skhdrc .yabairc; do
 done
 append_once '[ -f ~/.common_profile ] && . ~/.common_profile' ~/.zshrc
 
+step "iTerm2 profile"
+ITERM_PROFILES=~/Library/Application\ Support/iTerm2/DynamicProfiles
+mkdir -p "$ITERM_PROFILES"
+cp "$MACOS_DIR/iterm2/Martin.json" "$ITERM_PROFILES/"
+defaults write com.googlecode.iterm2 "Default Bookmark Guid" -string "8E3B6C2A-5D41-4F7E-9A0B-3C6D2E1F4A57"
+
 # Window management
 
 step "yabai, skhd services"
