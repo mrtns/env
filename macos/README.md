@@ -87,3 +87,19 @@ Needed for yabai features like moving windows between spaces. Requires partially
   * [yabai: Configuring the scripting addition](https://github.com/asmvik/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition)
 
 The sudoers entry pins yabai's hash, so re-run that step after upgrading yabai.
+
+## SpaceId
+
+Shows the current space number in the menu bar. Its Homebrew cask was disabled because the app is unsigned and fails Gatekeeper.
+
+* Download and install:
+  ```bash
+  curl -fsSL -o /tmp/SpaceId.app.zip https://github.com/dshnkao/SpaceId/releases/download/v1.4/SpaceId.app.zip
+  unzip -q /tmp/SpaceId.app.zip -d /Applications
+  xattr -dr com.apple.quarantine /Applications/SpaceId.app
+  ```
+
+* Open it and allow it to start at login.
+
+* References
+  * [dshnkao/SpaceId](https://github.com/dshnkao/SpaceId)
