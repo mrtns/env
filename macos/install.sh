@@ -55,7 +55,7 @@ fi
 # Fonts
 
 step "Fonts"
-for f in "$MACOS_DIR"/../fonts/*.ttf; do
+for f in "$MACOS_DIR"/../shared/fonts/*.ttf; do
   [ -e ~/Library/Fonts/"$(basename "$f")" ] || cp "$f" ~/Library/Fonts/
 done
 
