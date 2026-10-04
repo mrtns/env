@@ -48,11 +48,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 append_once 'eval "$(/opt/homebrew/bin/brew shellenv)"' ~/.zprofile
 
 step "Brewfile"
-# Homebrew refuses to load formulae from third-party taps until they're trusted.
-for t in $(sed -n 's/^tap "\(.*\)".*/\1/p' "$MACOS_DIR/Brewfile"); do
-  brew tap "$t"
-  brew trust "$t"
-done
 if ! brew bundle --file="$MACOS_DIR/Brewfile"; then
   echo "WARNING: some Brewfile entries failed to install (see above); continuing."
 fi
