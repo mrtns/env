@@ -21,6 +21,7 @@ Initializing a fresh macOS install on Apple Silicon.
 
 The script is safe to re-run. It installs:
 
+* Any pending Command Line Tools update, then checks that `clang` can build a program (a stale toolchain paired with a newer SDK breaks the Python build)
 * Rosetta, Homebrew, and everything in [Brewfile](Brewfile)
 * The fonts in [fonts/](../fonts), for any not already installed
 * oh-my-zsh, with the dpoggi theme and `~/.local/bin` on the PATH

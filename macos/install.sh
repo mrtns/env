@@ -16,6 +16,21 @@ append_once() {
   grep -qxF "$1" "$2" 2>/dev/null || echo "$1" >> "$2"
 }
 
+# Command Line Tools
+
+# The copy xcode-select installed can pair an old compiler with a newer SDK, so
+# nothing links (and pyenv can't build Python). Install any pending update.
+step "Command Line Tools"
+CLT_UPDATE="$(softwareupdate --list 2>/dev/null | sed -n 's/^\* Label: \(Command Line Tools.*\)$/\1/p' | tail -1)"
+if [ -n "$CLT_UPDATE" ]; then
+  sudo softwareupdate --install "$CLT_UPDATE"
+fi
+if ! echo 'int main(void){return 0;}' | clang -x c - -o /dev/null; then
+  echo "ERROR: clang can't build a trivial program. Reinstall the Command Line Tools:"
+  echo "  sudo rm -rf /Library/Developer/CommandLineTools && xcode-select --install"
+  exit 1
+fi
+
 # Rosetta
 
 step "Rosetta"
@@ -71,8 +86,11 @@ append_once 'export PYENV_ROOT="$HOME/.pyenv"' ~/.zshrc
 append_once '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' ~/.zshrc
 append_once 'eval "$(pyenv init - zsh)"' ~/.zshrc
 append_once 'eval "$(pyenv virtualenv-init -)"' ~/.zshrc
-pyenv install --skip-existing "$PYTHON_VERSION"
-pyenv global "$(pyenv latest "$PYTHON_VERSION")"
+if pyenv install --skip-existing "$PYTHON_VERSION"; then
+  pyenv global "$(pyenv latest "$PYTHON_VERSION")"
+else
+  echo "WARNING: Python $PYTHON_VERSION failed to build (see above); continuing. Re-run once fixed."
+fi
 
 # Dotfiles
 

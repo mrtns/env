@@ -1,9 +1,11 @@
+# Third-party tap items are marked `trusted: true` individually rather than
+# trusting whole taps, so Homebrew will load just these items.
 tap "asmvik/formulae"
 tap "jackielii/tap"
 
 # Window management
-brew "asmvik/formulae/yabai"
-cask "jackielii/tap/skhd-zig"
+brew "asmvik/formulae/yabai", trusted: true
+cask "jackielii/tap/skhd-zig", trusted: true
 
 # Dev tools
 brew "gh"
