@@ -19,5 +19,5 @@ brew "xz" # needed by pyenv to build Python's lzma module
 cask "klogg"
 cask "zed"
 
-# Fonts (install.sh copies the rest from fonts/)
+# Fonts (install.sh copies the rest from shared/fonts/)
 cask "font-jetbrains-mono"

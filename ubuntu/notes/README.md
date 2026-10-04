@@ -15,7 +15,7 @@ i3-msg exit
   ```
 
 * ```bash
-  cd fonts/
+  cd shared/fonts/
   sudo cp *.ttf /usr/share/fonts/
   sudo fc-cache -vf
   ```
