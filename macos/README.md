@@ -39,6 +39,18 @@ skhd --restart-service
 yabai --restart-service
 ```
 
+`alt + return` and `alt + shift + return` (skhd) open a new Chrome window. To skip Chrome's profile picker, put the profiles' folder names in `~/.chrome_profile` on each machine, line 1 for `alt + return` and line 2 for `alt + shift + return`. The folder names are under `~/Library/Application Support/Google/Chrome/` (`Default`, `Profile 1`, …):
+
+```bash
+printf '%s\n' "Profile 1" "Profile 2" > ~/.chrome_profile
+```
+
+To see which folder is which profile (folder, name, signed-in account):
+
+```bash
+python3 -c 'import json, os; [print(k, "|", v["name"], "|", v.get("user_name", "")) for k, v in json.load(open(os.path.expanduser("~/Library/Application Support/Google/Chrome/Local State")))["profile"]["info_cache"].items()]'
+```
+
 # iTerm2
 
 The "Martin" profile, including its key mappings and the [Synthwave](https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/schemes/Synthwave.itermcolors) colour scheme, is in [iterm2/Martin.json](iterm2/Martin.json). The install script copies it to iTerm2's Dynamic Profiles folder and makes it the default.
