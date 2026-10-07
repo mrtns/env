@@ -72,7 +72,12 @@
 
 # Applications
 alt - 0x2A : osascript -e 'tell application "iTerm" to create window with default profile'
-alt - return : osascript -e 'tell application "Google Chrome" to make new window' -e 'tell application "Google Chrome" to activate'
+# open -n starts a throwaway Chrome process that hands --new-window to whichever instance owns the
+# default user-data-dir, so automation instances (e.g. chrome-devtools-mcp, own --user-data-dir) are never targeted.
+# Per-machine profile directories (e.g. "Profile 1") are read from ~/.chrome_profile: line 1 for alt+return,
+# line 2 for alt+shift+return. Without one, Chrome shows its profile picker.
+alt - return : p="$(sed -n 1p ~/.chrome_profile 2>/dev/null)"; open -na "Google Chrome" --args --new-window ${p:+"--profile-directory=$p"}
+shift + alt - return : p="$(sed -n 2p ~/.chrome_profile 2>/dev/null)"; open -na "Google Chrome" --args --new-window ${p:+"--profile-directory=$p"}
 
 # Navigation
 alt - h : yabai -m window --focus west
