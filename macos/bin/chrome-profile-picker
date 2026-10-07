@@ -1,0 +1,25 @@
+#!/bin/bash
+# Pick a Chrome profile and open a new window for it on the current Space
+# (unlike Chrome's own profile switcher, which jumps to an existing window for that profile).
+# Bound in .skhdrc; needs `choose` (choose-gui in the Brewfile).
+set -euo pipefail
+
+# skhd runs commands with launchd's minimal PATH
+PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
+LOCAL_STATE="$HOME/Library/Application Support/Google/Chrome/Local State"
+
+# One "folder<TAB>name (account)" line per profile
+profiles="$(python3 -I -c '
+import json, sys
+for folder, info in json.load(open(sys.argv[1]))["profile"]["info_cache"].items():
+    account = info.get("user_name", "")
+    print(folder + "\t" + info["name"] + (f" ({account})" if account else ""))
+' "$LOCAL_STATE")"
+
+# choose shows only the names and returns the selected line's index; it exits non-zero when cancelled
+index="$(cut -f2 <<<"$profiles" | choose -i -a -p "Chrome profile")" || exit 0
+[ -n "$index" ] || exit 0
+folder="$(sed -n "$((index + 1))p" <<<"$profiles" | cut -f1)"
+
+open -na "Google Chrome" --args --new-window --profile-directory="$folder"

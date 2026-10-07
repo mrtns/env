@@ -78,6 +78,11 @@ alt - 0x2A : osascript -e 'tell application "iTerm" to create window with defaul
 # line 2 for alt+shift+return. Without one, Chrome shows its profile picker.
 alt - return : p="$(sed -n 1p ~/.chrome_profile 2>/dev/null)"; open -na "Google Chrome" --args --new-window ${p:+"--profile-directory=$p"}
 shift + alt - return : p="$(sed -n 2p ~/.chrome_profile 2>/dev/null)"; open -na "Google Chrome" --args --new-window ${p:+"--profile-directory=$p"}
+# In Chrome only, replace its profile switcher (which jumps to the Space of an existing window for that profile)
+# with a picker that always opens a new window on the current Space
+cmd + shift - m [
+  "Google Chrome" : ~/env/macos/bin/chrome-profile-picker
+]
 
 # Navigation
 alt - h : yabai -m window --focus west
