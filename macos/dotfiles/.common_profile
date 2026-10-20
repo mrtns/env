@@ -4,3 +4,6 @@ function mkcd
 }
 
 alias ll='ls -alph'
+
+# Machine-specific settings, kept out of the env repo
+[ -f ~/.common_profile.local ] && . ~/.common_profile.local
