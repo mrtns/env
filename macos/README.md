@@ -39,6 +39,8 @@ skhd --restart-service
 yabai --restart-service
 ```
 
+`.common_profile` also sources `~/.common_profile.local` if it exists. Put aliases and settings for one machine there (work paths, project shortcuts); it isn't in this repo and the install script doesn't touch it.
+
 `alt + return` and `alt + shift + return` (skhd) open a new Chrome window. To skip Chrome's profile picker, put the profiles' folder names in `~/.chrome_profile` on each machine, line 1 for `alt + return` and line 2 for `alt + shift + return`. The folder names are under `~/Library/Application Support/Google/Chrome/` (`Default`, `Profile 1`, …):
 
 ```bash
