@@ -6,6 +6,7 @@ tap "jackielii/tap"
 # Window management
 brew "asmvik/formulae/yabai", trusted: true
 cask "jackielii/tap/skhd-zig", trusted: true
+brew "choose-gui" # picker for bin/chrome-profile-picker (bound in .skhdrc)
 
 # Dev tools
 brew "gh"
