@@ -104,6 +104,17 @@ alt - 0 : yabai -m space --focus 10
 alt - 0x1B : yabai -m space --focus 11
 alt - 0x18 : yabai -m space --focus 12
 
+# Navigation - spaces as a grid: 1-10 on top, 11-16 below columns 1-6 (layout in space-grid)
+lctrl + alt - h : ~/env/macos/bin/space-grid left
+lctrl + alt - j : ~/env/macos/bin/space-grid down
+lctrl + alt - k : ~/env/macos/bin/space-grid up
+lctrl + alt - l : ~/env/macos/bin/space-grid right
+# ...and take the focused window along
+shift + lctrl + alt - h : ~/env/macos/bin/space-grid move left
+shift + lctrl + alt - j : ~/env/macos/bin/space-grid move down
+shift + lctrl + alt - k : ~/env/macos/bin/space-grid move up
+shift + lctrl + alt - l : ~/env/macos/bin/space-grid move right
+
 # Navigation - text editing
 alt - space | cmd - space
 cmd - backspace | alt - backspace
@@ -140,23 +151,6 @@ shift + alt - 0 : yabai -m window --space 10
 shift + alt - 0x1B : yabai -m window --space 11
 shift + alt - 0x18 : yabai -m window --space 12
 
-# Resize windows
-lctrl + alt - h : \
-    yabai -m window --resize left:-20:0 ; \
-    yabai -m window --resize right:-20:0
-
-lctrl + alt - j : \
-    yabai -m window --resize bottom:0:20 ; \
-    yabai -m window --resize top:0:20
-
-lctrl + alt - k : \
-    yabai -m window --resize top:0:-20 ; \
-    yabai -m window --resize bottom:0:-20
-
-lctrl + alt - l : \
-    yabai -m window --resize right:20:0 ; \
-    yabai -m window --resize left:20:0
-
 # Float and center window
 shift + alt - c : yabai -m window --toggle float;\
                   yabai -m window --grid 4:4:1:1:2:2
@@ -174,12 +168,6 @@ shift + alt - r : yabai -m space --rotate 270
 # Rotate on X and Y Axis
 shift + alt - x : yabai -m space --mirror x-axis
 shift + alt - y : yabai -m space --mirror y-axis
-
-# Set insertion point for focused container
-shift + lctrl + alt - h : yabai -m window --insert west
-shift + lctrl + alt - j : yabai -m window --insert south
-shift + lctrl + alt - k : yabai -m window --insert north
-shift + lctrl + alt - l : yabai -m window --insert east
 
 # Float / Unfloat window
 shift + alt - space : yabai -m window --toggle float

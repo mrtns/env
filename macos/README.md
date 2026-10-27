@@ -41,6 +41,8 @@ yabai --restart-service
 
 `.common_profile` also sources `~/.common_profile.local` if it exists. Put aliases and settings for one machine there (work paths, project shortcuts); it isn't in this repo and the install script doesn't touch it.
 
+`ctrl + alt + h/j/k/l` (skhd) move between spaces as if they were a grid: spaces 1–10 on top, and 11–16 below columns 1–6. Navigation stops at the edges. Add `shift` to take the focused window along. It needs 16 spaces (the most macOS allows per display); add them in Mission Control. The layout is set in [bin/space-grid](bin/space-grid).
+
 `alt + return` and `alt + shift + return` (skhd) open a new Chrome window. To skip Chrome's profile picker, put the profiles' folder names in `~/.chrome_profile` on each machine, line 1 for `alt + return` and line 2 for `alt + shift + return`. The folder names are under `~/Library/Application Support/Google/Chrome/` (`Default`, `Profile 1`, …):
 
 ```bash

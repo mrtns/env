@@ -1,0 +1,50 @@
+#!/bin/bash
+# Treat spaces as a grid and focus the neighbouring space. macOS allows at most 16 spaces per display:
+#
+#    1  2  3  4  5  6  7  8  9 10
+#   11 12 13 14 15 16
+#
+# Usage: space-grid [move] left|right|up|down
+# With `move`, the focused window goes to that space too.
+# Stops at the edges of the grid, including the gap under columns 7-10. Bound in .skhdrc.
+set -euo pipefail
+
+# skhd runs commands with launchd's minimal PATH
+PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
+# One line per row; rows can be shorter than the first
+GRID=(
+  "1 2 3 4 5 6 7 8 9 10"
+  "11 12 13 14 15 16"
+)
+
+move=false
+if [ "${1:-}" = move ]; then move=true; shift; fi
+
+current="$(yabai -m query --spaces --space | jq -r .index)"
+
+# Find the current space's row and column; spaces not in the grid (e.g. on a second display) are left alone
+row=-1
+for r in "${!GRID[@]}"; do
+  read -ra spaces <<<"${GRID[r]}"
+  for c in "${!spaces[@]}"; do
+    if ((spaces[c] == current)); then row=$r; col=$c; fi
+  done
+done
+((row >= 0)) || exit 0
+
+case "${1:-}" in
+  left)  col=$((col - 1)) ;;
+  right) col=$((col + 1)) ;;
+  up)    row=$((row - 1)) ;;
+  down)  row=$((row + 1)) ;;
+  *) echo "usage: $0 [move] left|right|up|down" >&2; exit 1 ;;
+esac
+
+((row >= 0 && row < ${#GRID[@]} && col >= 0)) || exit 0
+read -ra spaces <<<"${GRID[row]}"
+((col < ${#spaces[@]})) || exit 0
+target="${spaces[col]}"
+
+if $move; then yabai -m window --space "$target"; fi
+yabai -m space --focus "$target"
