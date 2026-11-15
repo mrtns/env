@@ -39,6 +39,8 @@ skhd --restart-service
 yabai --restart-service
 ```
 
+yabai doesn't need System Integrity Protection disabled or its scripting addition. Since 7.1.19 [`space --focus` works with SIP enabled](https://github.com/asmvik/yabai/blob/master/CHANGELOG.md), and since 7.1.25 so does moving windows between spaces, which covers every space binding in `.skhdrc`.
+
 `.common_profile` also sources `~/.common_profile.local` if it exists. Put aliases and settings for one machine there (work paths, project shortcuts); it isn't in this repo and the install script doesn't touch it.
 
 `alt + return` and `alt + shift + return` (skhd) open a new Chrome window. To skip Chrome's profile picker, put the profiles' folder names in `~/.chrome_profile` on each machine, line 1 for `alt + return` and line 2 for `alt + shift + return`. The folder names are under `~/Library/Application Support/Google/Chrome/` (`Default`, `Profile 1`, …):
@@ -88,41 +90,6 @@ These aren't in the Brewfile because their vendors don't list Homebrew as an ins
 * [iTerm2](https://iterm2.com/downloads.html)
 * [Logitech G HUB](https://www.logitechg.com/en-us/innovation/g-hub.html)
 * [Numi](https://numi.app/)
-
-## yabai scripting addition
-
-Needed for yabai features like moving windows between spaces. Requires partially disabling System Integrity Protection, which can't be scripted.
-
-* Check SIP:
-  ```bash
-  csrutil status
-  ```
-
-* Boot into Recovery (hold the power button), open Terminal and run:
-  ```bash
-  csrutil enable --without fs --without debug --without nvram
-  ```
-
-* Reboot, then enable the arm64e ABI and reboot again:
-  ```bash
-  sudo nvram boot-args=-arm64e_preview_abi
-  ```
-
-* Allow loading the scripting addition without a password:
-  ```bash
-  echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai
-  ```
-
-* Load it:
-  ```bash
-  sudo yabai --load-sa
-  ```
-
-* References
-  * [yabai: Disabling System Integrity Protection](https://github.com/asmvik/yabai/wiki/Disabling-System-Integrity-Protection)
-  * [yabai: Configuring the scripting addition](https://github.com/asmvik/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition)
-
-The sudoers entry pins yabai's hash, so re-run that step after upgrading yabai.
 
 ## SpaceId
 
