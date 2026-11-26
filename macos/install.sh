@@ -184,4 +184,4 @@ if ! command -v claude >/dev/null; then
   curl -fsSL https://claude.ai/install.sh | bash
 fi
 
-step "Done. See macos/README.md for manual steps (apps, yabai scripting addition, SpaceId)."
+step "Done. See macos/README.md for manual steps (apps, SpaceId)."
